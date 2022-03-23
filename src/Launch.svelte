@@ -10,9 +10,9 @@
             //iss: "https://vt-selecta-b.dips.local/DIPS-WebAPI/HL7/FHIR-R4",	
             //iss: "https://vt-bc-dev04-sr.dips.local/Arena-SmartEHR",
             //iss: "https://localhost:44311",
-            iss: "https://vt-fi-a-app.dips.local/DIPS-Arena-SmartEHR",
+            iss: "https://vt-fi-a-app.dips.local/DIPS-SmartEHR",
             scope: "openid profile",
-            launch: "2008909:encounter:resource",
+            launch: "2008903:encounter:resource",
 		});
 	});
 </script>        

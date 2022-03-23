@@ -11,18 +11,23 @@
         limit $count
     `;
 
+    let count = 25;
+
     var queryParams = {};
-    queryParams.count = 25;
+    queryParams.count = count;
 
     function postComposition()
     {
-        $openEHR.compose(new CompositionFactory().getComposition());
+        $openEHR.compose(            
+            new CompositionFactory().getComposition(),
+            -1502, 
+            1002160);
     }
 
 </script>
 <div>
     <h1>
-        Last 25 compositions
+        Last {count} compositions
     </h1>
     <div>
         <button on:click="{postComposition}">
