@@ -1,5 +1,5 @@
 <script>
-    import {authorize} from "openehr-client";
+    import {authorize} from "openehr-client-js";
 	import {onMount} from 'svelte';
 
     onMount(async () => {
@@ -11,6 +11,8 @@
             //iss: "https://vt-bc-dev04-sr.dips.local/Arena-SmartEHR",
             //iss: "https://localhost:44311",
             iss: "https://vt-fi-a-app.dips.local/DIPS-SmartEHR",
+            //iss: "https://localhost:5001",
+            //iss: "https://localhost:44311/dips-smartehr-service",
             scope: "openid profile",
             launch: "2008903:encounter:resource",
 		});

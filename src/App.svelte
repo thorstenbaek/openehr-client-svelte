@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {Router, Route} from "svelte-routing";
 	import Home from "./Home.svelte";
 	import Launch from "./Launch.svelte";

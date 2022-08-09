@@ -2,6 +2,151 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default class CompositionFactory {
 
+  createMarkdownComposition(markdown) {
+    return `
+    {
+      "_type": "COMPOSITION",
+      "archetype_node_id": "openEHR-EHR-COMPOSITION.encounter.v1",
+      "name": {
+        "value": "Klinisk kontakt"
+      },
+      "uid": {
+        "_type": "OBJECT_VERSION_ID",
+        "value": "${uuidv4()}::ehr_craft::1"
+      },
+      "archetype_details": {
+        "archetype_id": {
+          "value": "openEHR-EHR-COMPOSITION.encounter.v1"
+        },
+        "template_id": {
+          "value": "EhrNotes-ClinicalNote"
+        },
+        "rm_version": "1.0.4"
+      },
+      "language": {
+        "terminology_id": {
+          "value": "openehr"
+        },
+        "code_string": "nb"
+      },
+      "territory": {
+        "terminology_id": {
+          "value": "openehr"
+        },
+        "code_string": "NO"
+      },
+      "category": {
+        "defining_code": {
+          "terminology_id": {
+            "value": "openehr"
+          },
+          "code_string": "433"
+        }
+      },
+      "composer": {
+        "_type": "PARTY_IDENTIFIED",
+        "name": "unknown"
+      },
+      "context": {
+        "start_time": {
+          "value": "${new Date().toISOString()}"
+        },
+        "setting": {
+          "value": "secondary medical care",
+          "defining_code": {
+            "terminology_id": {
+              "value": "openehr"
+            },
+            "code_string": "232"
+          }
+        },
+        "other_context": {
+          "_type": "ITEM_TREE",
+          "archetype_node_id": "at0001",
+          "name": {
+            "value": "Tree"
+          }
+        }
+      },
+      "content": [
+        {
+          "_type": "OBSERVATION",
+          "archetype_node_id": "openEHR-EHR-OBSERVATION.progress_note.v1",
+          "name": {
+            "value": "Tidsfestet fritekst"
+          },
+          "archetype_details": {
+            "archetype_id": {
+              "value": "openEHR-EHR-OBSERVATION.progress_note.v1"
+            },
+            "template_id": {
+              "value": "EhrNotes-ClinicalNote"
+            },
+            "rm_version": "1.0.4"
+          },
+          "language": {
+            "terminology_id": {
+              "value": "ISO_639-1"
+            },
+            "code_string": "nb"
+          },
+          "encoding": {
+            "terminology_id": {
+              "value": "IANA"
+            },
+            "code_string": "UTF-8"
+          },
+          "subject": {
+            "_type": "PARTY_SELF"
+          },
+          "data": {
+            "archetype_node_id": "at0001",
+            "name": {
+              "value": "Event Series"
+            },
+            "origin": {
+              "value": "${new Date().toISOString()}"
+            },
+            "events": [
+              {
+                "_type": "POINT_EVENT",
+                "archetype_node_id": "at0002",
+                "name": {
+                  "value": "Uspesifisert hendelse"
+                },
+                "time": {
+                  "value": "${new Date().toISOString()}"
+                },
+                "data": {
+                  "_type": "ITEM_TREE",
+                  "archetype_node_id": "at0003",
+                  "name": {
+                    "value": "Tree"
+                  },
+                  "items": [
+                    {
+                      "_type": "ELEMENT",
+                      "archetype_node_id": "at0004",
+                      "name": {
+                        "value": "Tidsfestet fritekst"
+                      },
+                      "value": {
+                        "_type": "DV_TEXT",
+                        "value": "${markdown}\n\n"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+    
+    `; 
+  }
+
   getMADRS() {
     return `
     {
